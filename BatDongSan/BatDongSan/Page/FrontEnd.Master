@@ -1,0 +1,111 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FrontEnd.master.cs" Inherits="BatDongSan.Page.FrontEnd" %>
+
+<%@ Register Src="~/Page/Search.ascx" TagPrefix="uc1" TagName="Search" %>
+<%@ Register Src="~/Page/QuangCao.ascx" TagPrefix="uc1" TagName="QuangCao" %>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../CSS/Style.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style3 {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="page">
+            <div id="oho">
+                <p>San Thuong mai dien tu</p>
+                <p>Chi dang tin chinh chu # Goi gap ngay chu nha # Mien phi</p>
+                <div id="tim">
+                    <uc1:Search runat="server" id="Search" />
+                </div>
+                <p>ban la chinh chu can dang tin quang cao</p>
+            </div>
+            <div id="header">
+                <div id="menung">
+                    <ul>
+                        <li><a href="Home.aspx"><span>Trang Chu/TimKiem</span></a></li>
+                        <li><a href="#"><span>Gioi Thieu</span></a></li>
+                        <li><a href="#"><span>Dang Tin</span></a></li>
+                        <li><a href="#"><span>Kinh Nghiem Dang Tin Hieu Qua</span></a></li>
+                        <li><a href="#"><span>Xem Du Lieu Nang Cao</span></a></li>
+                        <li><a href="#"><span>Dich Vu Tuyen Dung Moi Gioi</span></a></li>
+                        <li><a href="#"><span>Dinh Gia</span></a></li>
+                        <li><a href="#"><span>Ban Do Quy Hoach</span></a></li>
+                        <li><a href="#"><span>Thanh Toan</span></a></li>
+                        <li><a href="#"><span>Quan Ly Tai Khoan</span></a></li>
+                    </ul>
+                </div>
+                <div id="logo">
+                    <img src="../images/anhbia.jpg" alt="" border="0" class="auto-style2" />
+                </div>
+            </div>
+            <div id="main">
+                <div id="content" class="auto-style2">
+                    <asp:ContentPlaceHolder ID="main_body" runat="server">
+                        Noi dung tin o day
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div id="right">
+                    <div id="quangcao">
+                        <uc1:QuangCao runat="server" ID="QuangCao1" />
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                 <table class="auto-style3">
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label11" runat="server" Text="Ho Chi Minh"></asp:Label>
+                            <asp:DataList ID="DataList1" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
+                                <AlternatingItemStyle BackColor="#F7F7F7" />
+                                <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                                <ItemStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+                                <ItemTemplate>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("Title") %>' NavigateUrl='<%# "Products.aspx?ID_TD="+Eval("ID_TD").ToString() %>'></asp:HyperLink>
+                                </ItemTemplate>
+                                <SelectedItemStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                            </asp:DataList>
+                        </td>
+                        <td>
+                            <asp:Label ID="Label12" runat="server" Text="Ha Noi"></asp:Label>
+                            <asp:DataList ID="DataList2" runat="server" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Both">
+                                <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
+                                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+                                <ItemStyle BackColor="White" ForeColor="#330099" />
+                                <ItemTemplate>
+                                    <asp:HyperLink ID="HyperLink2" runat="server" Text='<%# Eval("Title") %>' NavigateUrl='<%# "Products.aspx?ID_TD="+Eval("ID_TD").ToString() %>'></asp:HyperLink>
+                                </ItemTemplate>
+                                <SelectedItemStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+                            </asp:DataList>
+                        </td>
+                        <td>
+                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
